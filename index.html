@@ -14,6 +14,30 @@ section{width:94%;max-width:1400px;margin:24px auto}h2{font-size:23px;margin:0 0
 footer{background:var(--navy);color:white;text-align:center;padding:28px;margin-top:40px}
 .overlay{display:none;position:fixed;inset:0;background:#0009;z-index:5;overflow:auto;padding:16px}.dialog{background:white;border-radius:10px;max-width:650px;width:100%;margin:25px auto;padding:20px}.close{float:right;border:0;background:#eee;padding:8px;border-radius:5px}.cartrow{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #ddd}.qty{display:flex;align-items:center;gap:8px}.qty button{padding:5px 10px;background:white;border:1px solid #ccc;border-radius:4px}.total{font-weight:bold;font-size:20px;margin:18px 0}.wide{width:100%;padding:13px;border:0;border-radius:22px;background:var(--yellow);font-weight:bold}.detail{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.detail img{width:100%;height:250px;object-fit:contain}form{display:grid;gap:12px}form label{font-size:14px;font-weight:bold}form input,form textarea,form select{display:block;width:100%;padding:11px;border:1px solid #bbb;border-radius:5px;margin-top:5px}form textarea{min-height:75px}.notice{background:#fff7e6;padding:12px;border:1px solid #ead19a;border-radius:6px;font-size:13px;line-height:1.5}.success{background:#e9f6ec;padding:15px;border-radius:8px;line-height:1.5}.empty{background:white;padding:20px;text-align:center;border-radius:8px}
 @media(max-width:850px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){header{gap:10px}.logo{font-size:23px}.search{order:3;flex-basis:100%}.hero{padding:27px 20px;min-height:200px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product{padding:9px}.product img{height:135px}.categories{gap:8px}.category{font-size:12px;padding:12px 4px}.category span{font-size:24px}.detail{grid-template-columns:1fr}.detail img{height:185px}.dialog{margin:8px auto;padding:15px}}
+
+/* Amazon-inspired marketplace refinements for AMOZON */
+body{background:#e3e6e6}
+header{min-height:68px;padding:10px 3%;gap:20px}
+.logo{padding:7px 5px;border:1px solid transparent}
+.logo:hover,.header-link:hover,.cartbtn:hover{border:1px solid white}
+.search{height:42px;border-radius:5px;overflow:hidden;border:3px solid var(--gold)}
+.search input{padding:9px 12px;font-size:15px}
+.search button{min-width:48px;font-size:18px}
+nav{padding:11px 3%;gap:22px}
+nav a:first-child{font-weight:bold}
+.hero{width:100%;max-width:none;margin:0;border-radius:0;min-height:285px;padding:42px 7%;background:linear-gradient(100deg,#172b40 0%,#315f7d 58%,#e8a34c 150%)}
+section{width:96%;max-width:1500px}
+.categories{grid-template-columns:repeat(6,minmax(0,1fr))}
+.category{border-radius:2px;box-shadow:0 1px 3px #0002;min-height:100px}
+.product{border-radius:2px;box-shadow:0 1px 3px #0002}
+.product img{height:190px}
+.actions button{border-radius:18px}
+.add{background:#ffd814;border:1px solid #fcd200!important}
+.details{background:#f0f2f2}
+.toolbar{background:white;padding:14px;margin-bottom:0}
+#productList{margin-top:12px}
+@media(max-width:560px){header{padding:10px 3%;gap:8px}.hero{min-height:205px;padding:25px 5%}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}.product img{height:135px}}
+
 </style></head><body>
 <header><a class="logo" href="#">AMOZON</a><div class="search"><input id="searchInput" placeholder="Search AMOZON products..." aria-label="Search products"><button onclick="searchProducts()">🔍</button></div><button class="cartbtn" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</button></header>
 <nav><a href="#">Home</a><a href="#categories">Categories</a><a href="#products">Today's Deals</a><a href="#products" onclick="filterCategory('Electronics')">Electronics</a><a href="#products" onclick="filterCategory('Fashion')">Fashion</a><a href="#products" onclick="filterCategory('Beauty')">Beauty</a></nav>
