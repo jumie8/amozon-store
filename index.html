@@ -1,167 +1,53 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AMOZON | Online Shopping</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#131921">
+<title>AMOZON | Shop Smart, Live Better</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f3f4f6;color:#222}
-header{background:#131921;color:white;padding:14px 5%;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.logo{font-size:27px;font-weight:bold;color:#ffb84d}
-.search{flex:1;display:flex;min-width:200px}
-.search input{width:100%;padding:12px;border:0;border-radius:5px 0 0 5px;font-size:15px}
-.search button{padding:12px 18px;border:0;background:#febd69;border-radius:0 5px 5px 0;cursor:pointer}
-.cart{cursor:pointer;font-weight:bold}
-nav{background:#232f3e;color:white;padding:12px 5%;display:flex;gap:25px;overflow:auto;white-space:nowrap}
-nav a{color:white;text-decoration:none;font-size:14px}
-.hero{margin:20px auto;width:92%;background:linear-gradient(110deg,#162b45,#28628b);color:white;padding:45px 30px;border-radius:10px;min-height:230px;display:flex;align-items:center}
-.hero h1{font-size:35px;margin-bottom:12px}
-.hero p{font-size:17px;margin-bottom:20px}
-.hero button{background:#ffb84d;border:0;padding:13px 22px;border-radius:5px;font-weight:bold;cursor:pointer}
-section{width:92%;margin:25px auto}
-h2{font-size:23px;margin-bottom:18px}
-.categories{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px}
-.category{background:white;padding:18px 8px;text-align:center;border-radius:8px;cursor:pointer}
-.category span{font-size:30px;display:block;margin-bottom:8px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:15px}
-.product{background:white;padding:12px;border-radius:8px;box-shadow:0 2px 6px #00000012}
-.product img{width:100%;height:155px;object-fit:contain}
-.product h3{font-size:15px;margin:10px 0;min-height:35px}
-.price{font-weight:bold;color:#b12704;font-size:17px;margin:8px 0}
-.product button{background:#ffd814;border:0;padding:10px;width:100%;border-radius:20px;cursor:pointer}
-.product button:hover{background:#f7ca00}
-.tag{color:#087b39;font-size:12px;margin:5px 0}
-footer{background:#131921;color:white;text-align:center;padding:30px;margin-top:40px}
-#cartPanel{display:none;position:fixed;inset:0;background:#0008;z-index:5}
-.cartBox{background:white;max-width:420px;width:90%;height:100%;margin-left:auto;padding:22px;overflow:auto}
-.cartBox button{cursor:pointer}
-.cartRow{padding:12px 0;border-bottom:1px solid #ddd}
-.cartRow button{padding:5px 10px}
-.close{float:right;background:#eee;border:0;padding:8px}
-@media(max-width:500px){header{gap:12px}.logo{font-size:23px}.hero{padding:30px 20px}.hero h1{font-size:27px}}
-</style>
-</head>
-<body>
-<header>
-<div class="logo">AMOZON</div>
-<div class="search">
-<input id="searchInput" placeholder="Search AMOZON products...">
-<button onclick="searchProducts()">🔍</button>
-</div>
-<div class="cart" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</div>
-</header>
-
-<nav>
-<a href="#">Home</a>
-<a href="#categories">Categories</a>
-<a href="#products">Today's Deals</a>
-<a href="#products">Electronics</a>
-<a href="#products">Fashion</a>
-<a href="#products">Beauty</a>
-</nav>
-
-<div class="hero">
-<div>
-<h1>Welcome to AMOZON</h1>
-<p>Discover amazing products at great prices.</p>
-<button onclick="document.getElementById('products').scrollIntoView()">Shop Now</button>
-</div>
-</div>
-
-<section id="categories">
-<h2>Shop by Category</h2>
-<div class="categories">
-<div class="category" onclick="filterCategory('Electronics')"><span>📱</span>Electronics</div>
-<div class="category" onclick="filterCategory('Fashion')"><span>👗</span>Fashion</div>
-<div class="category" onclick="filterCategory('Beauty')"><span>💄</span>Beauty</div>
-<div class="category" onclick="filterCategory('Home')"><span>🏠</span>Home</div>
-<div class="category" onclick="filterCategory('Accessories')"><span>⌚</span>Accessories</div>
-<div class="category" onclick="showAll()"><span>🛍️</span>All Products</div>
-</div>
-</section>
-
-<section id="products">
-<h2>Featured Products</h2>
-<div class="products" id="productList"></div>
-</section>
-
-<div id="cartPanel">
-<div class="cartBox">
-<button class="close" onclick="closeCart()">Close ✕</button>
-<h2>Shopping Cart</h2>
-<div id="cartItems"></div>
-<h3 id="total" style="margin:20px 0">Total: ₦0</h3>
-<button onclick="alert('Checkout will be connected in the next development phase.')" style="background:#ffd814;border:0;padding:13px;width:100%;border-radius:20px">Proceed to Checkout</button>
-</div>
-</div>
-
-<footer>
-<h2>AMOZON</h2>
-<p>Your online shopping destination.</p>
-<p style="margin-top:12px">© 2026 AMOZON. All rights reserved.</p>
-</footer>
-
+:root{--navy:#131921;--navy2:#232f3e;--gold:#febd69;--yellow:#ffd814;--bg:#eaeded}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:#222}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{background:var(--navy);color:white;padding:13px 4%;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.logo{font-size:28px;font-weight:bold;color:var(--gold);text-decoration:none}.search{display:flex;flex:1;min-width:190px}.search input{width:100%;padding:12px;border:0;border-radius:5px 0 0 5px}.search button{border:0;background:var(--gold);padding:0 18px;border-radius:0 5px 5px 0}.cartbtn{background:transparent;border:1px solid #718096;color:white;padding:10px;border-radius:5px}
+nav{background:var(--navy2);padding:12px 4%;display:flex;gap:24px;overflow:auto;white-space:nowrap}nav a{color:white;text-decoration:none;font-size:14px}
+.hero{margin:18px auto;width:94%;max-width:1400px;min-height:240px;border-radius:10px;padding:38px;background:linear-gradient(110deg,#14283f,#28628b);color:white;display:flex;align-items:center}.hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 12px}.hero p{margin:0 0 20px}.primary{background:var(--yellow);border:0;border-radius:22px;padding:12px 22px;font-weight:bold}
+section{width:94%;max-width:1400px;margin:24px auto}h2{font-size:23px;margin:0 0 16px}.categories{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}.category{background:white;border:0;padding:17px 7px;border-radius:8px;font-weight:bold}.category span{display:block;font-size:28px;margin-bottom:8px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:15px}.toolbar h2{margin:0}.toolbar select{padding:9px;border:1px solid #bbb;border-radius:5px;background:white}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.product{background:white;padding:12px;border-radius:8px;box-shadow:0 2px 5px #0001;display:flex;flex-direction:column}.product img{width:100%;height:175px;object-fit:contain;cursor:pointer}.product h3{font-size:15px;margin:10px 0;min-height:36px}.tag{color:#087b39;font-size:12px}.price{font-weight:bold;color:#b12704;font-size:18px;margin:8px 0}.actions{display:grid;gap:7px;margin-top:auto}.actions button{border:0;border-radius:20px;padding:10px}.add{background:var(--yellow)}.details{background:#e7e9ec}
+footer{background:var(--navy);color:white;text-align:center;padding:28px;margin-top:40px}
+.overlay{display:none;position:fixed;inset:0;background:#0009;z-index:5;overflow:auto;padding:16px}.dialog{background:white;border-radius:10px;max-width:650px;width:100%;margin:25px auto;padding:20px}.close{float:right;border:0;background:#eee;padding:8px;border-radius:5px}.cartrow{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:1px solid #ddd}.qty{display:flex;align-items:center;gap:8px}.qty button{padding:5px 10px;background:white;border:1px solid #ccc;border-radius:4px}.total{font-weight:bold;font-size:20px;margin:18px 0}.wide{width:100%;padding:13px;border:0;border-radius:22px;background:var(--yellow);font-weight:bold}.detail{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.detail img{width:100%;height:250px;object-fit:contain}form{display:grid;gap:12px}form label{font-size:14px;font-weight:bold}form input,form textarea,form select{display:block;width:100%;padding:11px;border:1px solid #bbb;border-radius:5px;margin-top:5px}form textarea{min-height:75px}.notice{background:#fff7e6;padding:12px;border:1px solid #ead19a;border-radius:6px;font-size:13px;line-height:1.5}.success{background:#e9f6ec;padding:15px;border-radius:8px;line-height:1.5}.empty{background:white;padding:20px;text-align:center;border-radius:8px}
+@media(max-width:850px){.products{grid-template-columns:repeat(3,minmax(0,1fr))}.categories{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:560px){header{gap:10px}.logo{font-size:23px}.search{order:3;flex-basis:100%}.hero{padding:27px 20px;min-height:200px}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.product{padding:9px}.product img{height:135px}.categories{gap:8px}.category{font-size:12px;padding:12px 4px}.category span{font-size:24px}.detail{grid-template-columns:1fr}.detail img{height:185px}.dialog{margin:8px auto;padding:15px}}
+</style></head><body>
+<header><a class="logo" href="#">AMOZON</a><div class="search"><input id="searchInput" placeholder="Search AMOZON products..." aria-label="Search products"><button onclick="searchProducts()">🔍</button></div><button class="cartbtn" onclick="openCart()">🛒 Cart (<span id="cartCount">0</span>)</button></header>
+<nav><a href="#">Home</a><a href="#categories">Categories</a><a href="#products">Today's Deals</a><a href="#products" onclick="filterCategory('Electronics')">Electronics</a><a href="#products" onclick="filterCategory('Fashion')">Fashion</a><a href="#products" onclick="filterCategory('Beauty')">Beauty</a></nav>
+<main><div class="hero"><div><h1>Welcome to AMOZON</h1><p>Discover amazing products at great prices.</p><button class="primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button></div></div>
+<section id="categories"><h2>Shop by Category</h2><div class="categories"><button class="category" onclick="filterCategory('Electronics')"><span>📱</span>Electronics</button><button class="category" onclick="filterCategory('Fashion')"><span>👗</span>Fashion</button><button class="category" onclick="filterCategory('Beauty')"><span>💄</span>Beauty</button><button class="category" onclick="filterCategory('Home')"><span>🏠</span>Home</button><button class="category" onclick="filterCategory('Accessories')"><span>⌚</span>Accessories</button><button class="category" onclick="showAll()"><span>🛍️</span>All Products</button></div></section>
+<section id="products"><div class="toolbar"><h2 id="productHeading">Featured Products</h2><select id="sortSelect" onchange="sortProducts()"><option value="featured">Featured</option><option value="low">Price: Low to High</option><option value="high">Price: High to Low</option><option value="az">Name: A to Z</option></select></div><div class="products" id="productList"></div></section></main>
+<footer><h2>AMOZON</h2><p>Shop Smart, Live Better.</p><p>© 2026 AMOZON. All rights reserved.</p></footer>
+<div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()"><div class="dialog"><button class="close" onclick="closeCart()">Close ✕</button><h2>Your Shopping Cart</h2><div id="cartItems"></div><div class="total" id="cartTotal">Total: ₦0</div><button class="wide" onclick="goCheckout()">Proceed to Checkout</button></div></div>
+<div class="overlay" id="detailOverlay" onclick="if(event.target===this)closeDetails()"><div class="dialog"><button class="close" onclick="closeDetails()">Close ✕</button><div id="detailContent"></div></div></div>
+<div class="overlay" id="checkoutOverlay" onclick="if(event.target===this)closeCheckout()"><div class="dialog"><button class="close" onclick="closeCheckout()">Close ✕</button><div id="checkoutContent"><h2>Checkout</h2><div id="checkoutSummary"></div><div class="notice">Payment is not connected yet. This is a checkout preview only; no money will be collected. Orders are not sent to a store until a secure backend is connected.</div><form id="checkoutForm" onsubmit="submitOrder(event)"><label>Full name<input name="name" required autocomplete="name"></label><label>Phone number<input name="phone" type="tel" required autocomplete="tel"></label><label>Email address<input name="email" type="email" required autocomplete="email"></label><label>Delivery address<textarea name="address" required autocomplete="street-address"></textarea></label><label>City<input name="city" required></label><label>State<input name="state" required></label><button class="wide" type="submit">Prepare Order Request</button></form></div></div></div>
 <script>
 const products=[
-{id:1,name:"Smartphone",category:"Electronics",price:250000,image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500"},
-{id:2,name:"Wireless Headphones",category:"Electronics",price:45000,image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"},
-{id:3,name:"Ladies Handbag",category:"Fashion",price:35000,image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500"},
-{id:4,name:"Wrist Watch",category:"Accessories",price:55000,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"},
-{id:5,name:"Beauty Products",category:"Beauty",price:18000,image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500"},
-{id:6,name:"Sneakers",category:"Fashion",price:65000,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500"},
-{id:7,name:"Home Decor",category:"Home",price:28000,image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500"},
-{id:8,name:"Sunglasses",category:"Accessories",price:22000,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"}
-];
-let cart=[];
-let shownProducts=products;
-const money=n=>"₦"+n.toLocaleString("en-NG");
-
-function renderProducts(items){
-shownProducts=items;
-document.getElementById("productList").innerHTML=items.map(p=>`
-<div class="product">
-<img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/300x200?text=AMOZON'">
-<div class="tag">Available for shopping</div>
-<h3>${p.name}</h3>
-<div class="price">${money(p.price)}</div>
-<button onclick="addToCart(${p.id})">Add to Cart</button>
-</div>`).join("")||"<p>No products found.</p>";
-}
-function addToCart(id){
-let item=cart.find(p=>p.id===id);
-if(item)item.qty++;
-else cart.push({...products.find(p=>p.id===id),qty:1});
-updateCart();
-}
-function updateCart(){
-document.getElementById("cartCount").textContent=cart.reduce((s,p)=>s+p.qty,0);
-document.getElementById("cartItems").innerHTML=cart.map(p=>`
-<div class="cartRow">
-<strong>${p.name}</strong><br>${money(p.price)} × ${p.qty}
-<button onclick="changeQty(${p.id},-1)">−</button>
-<button onclick="changeQty(${p.id},1)">+</button>
-</div>`).join("")||"<p>Your cart is empty.</p>";
-document.getElementById("total").textContent="Total: "+money(cart.reduce((s,p)=>s+p.price*p.qty,0));
-}
-function changeQty(id,n){
-let p=cart.find(x=>x.id===id);
-if(p){p.qty+=n;if(p.qty<=0)cart=cart.filter(x=>x.id!==id);}
-updateCart();
-}
-function openCart(){document.getElementById("cartPanel").style.display="block";updateCart();}
-function closeCart(){document.getElementById("cartPanel").style.display="none";}
-function searchProducts(){
-let q=document.getElementById("searchInput").value.toLowerCase();
-renderProducts(products.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
-}
-function filterCategory(c){renderProducts(products.filter(p=>p.category===c));document.getElementById("products").scrollIntoView();}
-function showAll(){renderProducts(products);}
-document.getElementById("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")searchProducts();});
-renderProducts(products);
-updateCart();
-</script>
-</body>
-</html>
-
+{id:1,name:"Smartphone",category:"Electronics",price:250000,image:"https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500",description:"A modern smartphone for communication, entertainment and productivity."},
+{id:2,name:"Wireless Headphones",category:"Electronics",price:45000,image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500",description:"Wireless headphones for music and calls."},
+{id:3,name:"Ladies Handbag",category:"Fashion",price:35000,image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500",description:"A stylish handbag for everyday use and special occasions."},
+{id:4,name:"Wrist Watch",category:"Accessories",price:55000,image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",description:"A classic wristwatch to complement your outfit."},
+{id:5,name:"Beauty Products",category:"Beauty",price:18000,image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500",description:"Beauty essentials for your personal-care routine."},
+{id:6,name:"Sneakers",category:"Fashion",price:65000,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500",description:"Comfortable casual sneakers for everyday wear."},
+{id:7,name:"Home Decor",category:"Home",price:28000,image:"https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500",description:"Decor pieces to add style and comfort to your home."},
+{id:8,name:"Sunglasses",category:"Accessories",price:22000,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",description:"Versatile sunglasses to complete your look."}];
+const money=n=>"₦"+Number(n).toLocaleString("en-NG");let cart=[];try{cart=JSON.parse(localStorage.getItem("amozon_cart")||"[]");if(!Array.isArray(cart))cart=[]}catch(e){cart=[]}let visible=[...products];
+function saveCart(){try{localStorage.setItem("amozon_cart",JSON.stringify(cart))}catch(e){}}
+function renderProducts(items){visible=[...items];document.getElementById("productList").innerHTML=items.map(p=>'<article class="product"><img src="'+p.image+'" alt="'+p.name+'" loading="lazy" onclick="showDetails('+p.id+')" onerror="this.src=\'https://placehold.co/300x200?text=AMOZON\'"><div class="tag">Available for shopping</div><h3>'+p.name+'</h3><div class="price">'+money(p.price)+'</div><div class="actions"><button class="details" onclick="showDetails('+p.id+')">View Details</button><button class="add" onclick="addToCart('+p.id+')">Add to Cart</button></div></article>').join("")||'<div class="empty">No products found.</div>'}
+function addToCart(id){const p=products.find(x=>x.id===id);if(!p)return;const old=cart.find(x=>x.id===id);if(old)old.qty++;else cart.push({...p,qty:1});updateCart();saveCart()}
+function updateCart(){document.getElementById("cartCount").textContent=cart.reduce((s,p)=>s+p.qty,0);document.getElementById("cartItems").innerHTML=cart.map(p=>'<div class="cartrow"><div><b>'+p.name+'</b><br>'+money(p.price)+' each</div><div class="qty"><button onclick="changeQty('+p.id+',-1)">−</button>'+p.qty+'<button onclick="changeQty('+p.id+',1)">+</button><button onclick="removeItem('+p.id+')">✕</button></div></div>').join("")||'<p class="empty">Your cart is empty.</p>';document.getElementById("cartTotal").textContent="Total: "+money(cart.reduce((s,p)=>s+p.price*p.qty,0))}
+function changeQty(id,n){const p=cart.find(x=>x.id===id);if(!p)return;p.qty+=n;if(p.qty<1)removeItem(id);else{updateCart();saveCart()}}
+function removeItem(id){cart=cart.filter(p=>p.id!==id);updateCart();saveCart()}
+function openCart(){document.getElementById("cartOverlay").style.display="block";updateCart()}function closeCart(){document.getElementById("cartOverlay").style.display="none"}
+function showDetails(id){const p=products.find(x=>x.id===id);if(!p)return;document.getElementById("detailContent").innerHTML='<div class="detail"><img src="'+p.image+'" alt="'+p.name+'"><div><div class="tag">'+p.category+'</div><h2>'+p.name+'</h2><div class="price">'+money(p.price)+'</div><p>'+p.description+'</p><br><button class="wide" onclick="addToCart('+p.id+');closeDetails()">Add to Cart</button></div></div>';document.getElementById("detailOverlay").style.display="block"}function closeDetails(){document.getElementById("detailOverlay").style.display="none"}
+function searchProducts(){const q=document.getElementById("searchInput").value.trim().toLowerCase();document.getElementById("productHeading").textContent=q?"Search Results":"Featured Products";renderProducts(products.filter(p=>(p.name+" "+p.category+" "+p.description).toLowerCase().includes(q)))}
+function filterCategory(c){document.getElementById("productHeading").textContent=c+" Products";renderProducts(products.filter(p=>p.category===c));document.getElementById("products").scrollIntoView({behavior:"smooth"})}function showAll(){document.getElementById("productHeading").textContent="All Products";renderProducts(products);document.getElementById("products").scrollIntoView({behavior:"smooth"})}
+function sortProducts(){const v=document.getElementById("sortSelect").value;const a=[...visible];if(v==="low")a.sort((x,y)=>x.price-y.price);if(v==="high")a.sort((x,y)=>y.price-x.price);if(v==="az")a.sort((x,y)=>x.name.localeCompare(y.name));renderProducts(a)}
+function goCheckout(){if(!cart.length){alert("Your cart is empty.");return}closeCart();document.getElementById("checkoutSummary").innerHTML='<p>'+cart.map(p=>p.name+' × '+p.qty+' — '+money(p.price*p.qty)).join("<br>")+'</p><p class="total">Total: '+money(cart.reduce((s,p)=>s+p.price*p.qty,0))+'</p>';document.getElementById("checkoutOverlay").style.display="block"}function closeCheckout(){document.getElementById("checkoutOverlay").style.display="none"}
+function submitOrder(e){e.preventDefault();const f=new FormData(e.target);const ref="AMZ-"+Date.now().toString().slice(-8);const items=cart.map(p=>p.name+" × "+p.qty+" ("+money(p.price*p.qty)+")").join("<br>");const total=cart.reduce((s,p)=>s+p.price*p.qty,0);const safeName=String(f.get("name")).replace(/[<>]/g,"");document.getElementById("checkoutContent").innerHTML='<div class="success"><h2>Order request preview</h2><p>Reference: <b>'+ref+'</b></p><p>Thank you, '+safeName+'.</p><p>'+items+'</p><p><b>Total: '+money(total)+'</b></p><p>This is only a local demo. Your order has NOT been sent to the shop or saved on a server. A secure backend is needed before accepting real orders.</p><button class="wide" onclick="finishOrder()">Continue Shopping</button></div>'}
+function finishOrder(){cart=[];saveCart();updateCart();closeCheckout();document.getElementById("checkoutContent").innerHTML='<h2>Checkout</h2><div id="checkoutSummary"></div><div class="notice">Payment is not connected. Orders are not sent to a store until a secure backend is connected.</div><form onsubmit="submitOrder(event)"><label>Full name<input name="name" required></label><label>Phone number<input name="phone" type="tel" required></label><label>Email address<input name="email" type="email" required></label><label>Delivery address<textarea name="address" required></textarea></label><label>City<input name="city" required></label><label>State<input name="state" required></label><button class="wide" type="submit">Prepare Order Request</button></form>'}
+document.getElementById("searchInput").addEventListener("keydown",e=>{if(e.key==="Enter")searchProducts()});renderProducts(products);updateCart();
+</script></body></html>
